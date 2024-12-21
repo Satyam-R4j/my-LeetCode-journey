@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+// Comparator function for qsort
+int compare(const void *a, const void *b)
+{
+    return (*(int *)a - *(int *)b);
+}
+
+// Function to check for duplicates
+bool containsDuplicate(int *nums, int numsSize)
+{
+    // Edge case: If there's 0 or 1 element, no duplicates possible
+    if (numsSize <= 1)
+        return false;
+
+    // Sort the array
+    qsort(nums, numsSize, sizeof(int), compare);
+
+    // Check adjacent elements for duplicates
+    for (int i = 0; i < numsSize - 1; i++)
+    {
+        if (nums[i] == nums[i + 1])
+        {
+            return true; // Duplicate found
+        }
+    }
+    return false; // No duplicates found
+}
+
+int main()
+{
+    int nums[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 1}; // Example input
+    int size = sizeof(nums) / sizeof(nums[0]);
+
+    if (containsDuplicate(nums, size))
+    {
+        printf("Contains Duplicate\n");
+    }
+    else
+    {
+        printf("No Duplicate\n");
+    }
+
+    return 0;
+}
