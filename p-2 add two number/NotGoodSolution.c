@@ -53,7 +53,6 @@ void addTwoNumer(struct node *nRoot, struct node *pRoot)
             newSum = 0;
             printf("iam result %d\n", result[i]);
             sum = 0;
-            
         }
         else
         {
@@ -68,17 +67,51 @@ void addTwoNumer(struct node *nRoot, struct node *pRoot)
             newSum = 0;
             printf("iam result %d\n", result[i]);
             sum = 0;
-            
         }
         nRoot = nRoot->next;
         pRoot = pRoot->next;
     }
     // printf("the sum is %d", sum);
     int size = sizeof(result) / sizeof(result[0]);
-    printf("the size of result is %d\n",size);
+    printf("the size of result is %d\n", size);
     for (int i = 0; i < 3; i++)
     {
         printf("%d", result[i]);
+    }
+}
+
+void addTwoNode(struct node *nRoot, struct node *pRoot)
+{
+    int carry = 0;
+    int sum = 0;
+
+    struct node dummy;
+    struct node *current = &dummy;
+
+    while (nRoot != NULL && pRoot != NULL)
+    {
+
+        int nData = ((nRoot == NULL) ? 0 : nRoot->data);
+        int pData = ((pRoot == NULL) ? 0 : pRoot->data);
+        sum = nData + pData + carry;
+        carry = 0;
+
+        carry = sum / 10;
+
+        int newNodeData = sum % 10;
+
+        current->next = createNode(newNodeData);
+        current = current->next;
+        if (nRoot != NULL)
+        {
+            nRoot = nRoot->next;
+        }
+        if (pRoot != NULL)
+        {
+            pRoot = pRoot->next;
+        }
+
+        return dummy.next;
     }
 }
 
