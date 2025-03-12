@@ -2,6 +2,8 @@
  * @param {number} n
  * @return {number}
  */
+//Satyam-R4j-LeetCode Problem-204 (medium)
+//Solution in JavaScript
 var countPrimes = function (n)
 {
     let isPrime = new Array(n + 1)
