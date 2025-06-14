@@ -2,7 +2,8 @@
  * @param {number} n
  * @return {string[][]}
  */
-
+//Satyam-R4j-LeetCode Problem-51 (Hard) 
+//Solution in JavaScript with Recursion and Backtracking
 function isSafe(board, row, col, n)
 {
     // Horizontal
