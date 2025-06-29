@@ -4,7 +4,6 @@
 
 ![Last Commit](https://img.shields.io/github/last-commit/Satyam-R4j/my-LeetCode-journey)
 ![Languages Count](https://img.shields.io/github/languages/count/Satyam-R4j/my-LeetCode-journey)
-![Top Language](https://img.shields.io/github/languages/top/Satyam-R4j/my-LeetCode-journey)
 
 ---
 
