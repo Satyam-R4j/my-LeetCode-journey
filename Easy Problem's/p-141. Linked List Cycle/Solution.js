@@ -47,7 +47,7 @@ function createLinkedListWithCycle(arr, pos)
 var hasCycle = function (head) {
     let slow = head
     let fast = head
-    
+
     while (fast !== null && fast.next !== null) {
 
         slow = slow.next
@@ -61,4 +61,4 @@ var hasCycle = function (head) {
 
 
 let head = createLinkedListWithCycle([3, 2, 0, -4], 1);
-console.log(hasCycle(head));  // Expect true or false
+console.log(hasCycle(head)); 
