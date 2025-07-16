@@ -39,35 +39,47 @@ function listToArray(head)
  * @param {ListNode} head
  * @return {ListNode}
  */
+//Satyam-R4j-LeetCode Problem-24 (medium)
+//Solution in JavaScript
 var swapPairs = function (head)
 {
-    if(head === null) return null
-    let curr = head
-    let len = 0
-    while(curr !== null)
-    {
-        len++
-        curr = curr.next
-    }  
+    if (head === null || head.next === null) return head
 
-    console.log(len);
-    
-    
-    
-    let prev = head
-    let next = head.next
-    let i = 0
-    while(i <= len)
-    {
-        next.next = prev
-        prev.next = next
+    let first = head
+    let sec = head.next
+    let prev = null
 
-        i++
+    while (first !== null && sec !== null)
+    {
+        let third = sec.next
+
+        sec.next = first
+        first.next = third
+
+        if (prev !== null)
+        {
+            prev.next = sec
+        }
+        else
+        {
+            head = sec
+        }
+
+        prev = first
+        first = third
+        if (third !== null)
+        {
+            sec = third.next
+        }
+        else
+        {
+            sec = null
+        }
     }
-    
     return head;
 };
-let head = arrayToList([1,2,3,4])
+
+let head = arrayToList([1, 2, 3, 4, 5])
 const swapped = swapPairs(head);
 const outputArray = listToArray(swapped);
 console.log(outputArray);
