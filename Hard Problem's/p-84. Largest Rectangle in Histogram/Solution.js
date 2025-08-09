@@ -2,9 +2,10 @@
  * @param {number[]} heights
  * @return {number}
  */
+//Satyam-R4j-LeetCode Problem-84 (Hard) 
+//Solution in JavaScript
 var largestRectangleArea = function (heights)
 {
-
     let n = heights.length
     let left = []
     let right = []
@@ -45,7 +46,6 @@ var largestRectangleArea = function (heights)
         ans = Math.max(ans,currArea)
     }
     return ans
-
 };
 
 // --- Test cases ---
