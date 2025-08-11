@@ -16,7 +16,7 @@ function ListNode(val, next)
  * @param {number} k
  * @return {ListNode}
  */
-//Satyam-R4j-LeetCode Problem-430 (medium)
+//Satyam-R4j-LeetCode Problem-61 (medium)
 //Solution in JavaScript
 var rotateRight = function (head, k)
 {
