@@ -22,7 +22,7 @@ MyStack.prototype.push = function (x)
 MyStack.prototype.pop = function ()
 {
     return ans = this.q1.shift()
-};
+};  
 
 MyStack.prototype.top = function ()
 {
