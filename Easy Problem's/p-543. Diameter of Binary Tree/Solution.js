@@ -12,20 +12,38 @@
  */
 //Satyam-R4j-LeetCode Problem-543 (easy)
 //Solution in JavaScript
-function height(node) {
-    if (root === null) return 0;
+// function height(node) {
+//     if (node === null) return 0;
 
-    let leftHeight = height(node.left);
-    let rightHeight = height(node.right);
+//     let leftHeight = height(node.left);
+//     let rightHeight = height(node.right);
 
-    return Math.max(leftHeight, rightHeight) + 1;
-}
+//     return Math.max(leftHeight, rightHeight) + 1;
+// }
+// var diameterOfBinaryTree = function (root) {
+//     if (root === null) return 0;
+
+//     let leftDiameter = diameterOfBinaryTree(root.left);
+//     let rightDiameter = diameterOfBinaryTree(root.right);
+//     let currentDiameter = height(root.left) + height(root.right);
+
+//     return Math.max(currentDiameter, rightDiameter, leftDiameter);
+// };
+
+//Satyam-R4j-LeetCode Problem-543 (easy)
+//Solution in JavaScript most optimal
 var diameterOfBinaryTree = function (root) {
-    if (root === null) return 0;
+    let ans = 0;
 
-    let leftDiameter = diameterOfBinaryTree(root.left);
-    let rightDiameter = diameterOfBinaryTree(root.right);
-    let currentDiameter = height(root.left) + height(root.right);
+    function heightAndDiameter(node) {
+        if (!node) return 0;
 
-    return Math.max(currentDiameter, rightDiameter, leftDiameter);
+        let leftHeight = heightAndDiameter(node.left);
+        let rightHeight = heightAndDiameter(node.right);
+        ans = Math.max(ans, leftHeight + rightHeight);
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+    heightAndDiameter(root);
+    
+    return ans;
 };
