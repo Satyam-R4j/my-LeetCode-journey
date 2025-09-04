@@ -11,28 +11,24 @@
  * @return {number[]}
  */
 
-function TreeNode(val, left, right)
-{
-    this.val = (val === undefined ? 0 : val)
-    this.left = (left === undefined ? null : left)
-    this.right = (right === undefined ? null : right)
+function TreeNode(val, left, right) {
+    this.val = val === undefined ? 0 : val;
+    this.left = left === undefined ? null : left;
+    this.right = right === undefined ? null : right;
 }
 
+var inorderTraversal = function (root) {
 
-
-
-
-var inorderTraversal = function (root)
-{
-    let n = root.length
-    console.log(n);
-    
-    let number = new Array(n)
-    inorderTraversal(root.left)
-    number.fill(inorderTraversal(root.val))
-    inorderTraversal(root.right)
-    return number
+    let result = new Array()
+    function helper(node, result) {
+        if(!node) return 
+        helper(node.left,result);
+        result.push(node.val);
+        helper(node.right,result);
+    }
+    helper(root, result);
+    return result;
 };
 
-let root = TreeNode([1, 2, 3, 4, 5, null, 8, null, null, 6, 7, 9])
+let root = TreeNode([1, 2, 3, 4, 5, null, 8, null, null, 6, 7, 9]);
 console.log(inorderTraversal(root));
