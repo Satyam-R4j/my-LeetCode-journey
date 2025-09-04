@@ -16,7 +16,8 @@ function TreeNode(val, left, right) {
     this.left = left === undefined ? null : left;
     this.right = right === undefined ? null : right;
 }
-
+//Satyam-R4j-LeetCode Problem-94 (easy)
+//Solution in JavaScript
 var inorderTraversal = function (root) {
 
     let result = new Array()
