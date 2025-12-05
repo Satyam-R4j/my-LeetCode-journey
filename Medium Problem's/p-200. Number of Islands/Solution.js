@@ -2,12 +2,13 @@
  * @param {character[][]} grid
  * @return {number}
  */
-//Satyam-R4j-LeetCode Problem-200 (medium)
-//Solution in JavaScript
+
 /**
  * @param {character[][]} grid
  * @return {number}
  */
+//Satyam-R4j-LeetCode Problem-200 (medium)
+//Solution in JavaScript
 var numIslands = function (grid) {
     function helper(i, j) {
         if (i < 0 || j < 0 || i >= n || j >= m || grid[i][j] !== "1") {
