@@ -5,48 +5,29 @@
  */
 //Satyam-R4j-LeetCode Problem-39 (medium)
 //Solution in JavaScript
-function getAllCombination(arr, i, target, ans, combin, st)
-{
-    if (i > arr.length || target < 0)
-    {
-        return
-    }
-
-    if (target === 0)
-    {
-        let key = combin.slice().sort((a, b) => a - b).toString()
-        if (!st.has(key))
-        {
-            ans.push([...combin])
-            st.add(key)
+var combinationSum = function (arr, target) {
+    function helper(arr, i, target, ans, combin) {
+        if (target === 0) {
+            ans.push([...combin]);
+            return;
         }
-        return
+        if (i >= arr.length || target < 0) return;
+
+        combin.push(arr[i]);
+        helper(arr, i, target - arr[i], ans, combin);
+
+        combin.pop();
+        helper(arr, i + 1, target, ans, combin);
     }
 
-    if (i >= arr.length) return
+    arr.sort((a, b) => a - b);
+    let ans = [];
+    let combin = [];
 
-    combin.push(arr[i])
-    // Single Choice 
-    getAllCombination(arr, i + 1, target - arr[i], ans, combin, st)
-
-    // Multiple Choice
-    getAllCombination(arr, i, target - arr[i], ans, combin, st)
-
-    // Backtracing
-    combin.pop()
-
-    //Exclusion
-    getAllCombination(arr, i + 1, target, ans, combin, st)
-}
-var combinationSum = function (arr, target)
-{
-    let ans = []
-    let combin = []
-    let st = new Set()
-
-    getAllCombination(arr, 0, target, ans, combin, st)
-    return ans
+    helper(arr, 0, target, ans, combin);
+    return ans;
 };
 
-let arr = [2, 3, 6, 7], target = 7
+let arr = [2, 3, 6, 7],
+    target = 7;
 console.log(combinationSum(arr, target));
