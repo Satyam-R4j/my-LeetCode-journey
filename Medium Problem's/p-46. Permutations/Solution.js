@@ -2,32 +2,29 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
-//Satyam-R4j-LeetCode Problem-46 (Medium) 
+//Satyam-R4j-LeetCode Problem-46 (Medium)
 //Solution in JavaScript with Recursion
-function swap(arr, i, j)
-{
-    [arr[i], arr[j]] = [arr[j], arr[i]]
-}
-let getPermute = (nums, idx, ans) =>
-{
-    if (idx === nums.length)
+var permute = function (nums) {
+    function swap(arr, i, j)
     {
-        ans.push([...nums])
-        return
+        [arr[i], arr[j]] = [arr[j], arr[i]]
     }
-    for (let i = idx; i < nums.length; i++)
-    {
-        swap(nums,idx, i)
-        getPermute(nums, idx + 1, ans)
-        swap(nums,idx, i)
+    function helper(nums, i, result) {
+        if (i === nums.length) {
+            result.push([...nums])
+            return
+        }
+        for (let j = i; j < nums.length; j++) {
+            swap(nums, i, j)
+            helper(nums, i + 1,result)
+            swap(nums, i, j)
+        }
     }
-}
-var permute = function (nums)
-{
-    let ans = []
-    getPermute(nums, 0, ans)
-    return ans
+
+    let result = []
+    helper(nums, 0, result)
+    return result
 };
 
-let nums = [1, 2, 3]
+let nums = [1, 2, 3];
 console.log(permute(nums));
