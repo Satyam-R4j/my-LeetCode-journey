@@ -2,11 +2,9 @@
 //Solution in JavaScript
 var MinStack = function ()
 {
-
     this.stack = []
     this.minStack = []
 };
-
 MinStack.prototype.push = function (val)
 {
     this.stack.push(val)
@@ -15,7 +13,6 @@ MinStack.prototype.push = function (val)
         this.minStack.push(val)
     }
 };
-
 MinStack.prototype.pop = function ()
 {
 
@@ -26,12 +23,10 @@ MinStack.prototype.pop = function ()
     }
 
 };
-
 MinStack.prototype.top = function ()
 {
     return this.stack[this.stack.length - 1]
 };
-
 MinStack.prototype.getMin = function ()
 {
 
