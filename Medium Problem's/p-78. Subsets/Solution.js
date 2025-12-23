@@ -4,7 +4,7 @@
  * @return {number[][]}
  */
 //Satyam-R4j-LeetCode Problem-78 (Medium) 
-//Solution in JavaScript with Recursion
+//Solution in JavaScript
 var subsets = function (nums)
 {
     let result = []
