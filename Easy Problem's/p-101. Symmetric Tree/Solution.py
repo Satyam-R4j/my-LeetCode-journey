@@ -10,7 +10,7 @@ from typing import Optional
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:  # type: ignore
         if not root:
-            return False
+            return True
 
         def isMirror(left, right):
             if not left and not right:
