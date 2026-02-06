@@ -6,7 +6,7 @@
 class Solution:
     def insertionSortList(self, head: Optional[ListNode]) -> Optional[ListNode]: # type: ignore
 
-        dumy = ListNode(0)
+        dumy = ListNode(0)  # type: ignore
         curr = head
         while curr:
             next_node = curr.next
