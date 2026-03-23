@@ -20,7 +20,7 @@ class Solution:
 
             # right column
             for i in range(layer + 1, m - layer):
-                if not curr:
+                if not curr:  
                     return matrix
                 matrix[i][n - layer - 1] = curr.val
                 curr = curr.next
